@@ -6,14 +6,14 @@ Dynamics AX is among the Enterprise Resource Planning (ERP) products of the Micr
 
 ### What is X++
 
-X++ is an Object oriented programming language which is used to write application login in Axapta (long for AX). X++ is flexible and optimized for creation and modification of business objects. X++ language is integrated with SQL syntax, i.e. there is no need to setup a database connection. Furthermore, X++ is also used for creating forms, generating reports, integrating services, implementing workflows and customize elements according to user's need. 
+X++ is an Object oriented programming language which is used to write application logic in Axapta (long for AX). X++ is flexible and optimized for creation and modification of business objects. X++ language is integrated with SQL syntax, i.e. there is no need to setup a database connection to query a database. Lastly, X++ is also used for creating forms, generating reports, integrating services, implementing workflows and customize elements according to user's need. 
 
-X++ is create with C++. The C++ kernel code isn't available but X++ source code is open-sourced to the community. Packages are there to assist developers in reusability rather than restarting from scratch each time. Even though X++ is a programming language, it doesn't support inheritance with all type of object types. 
+X++ is created on C++. The C++ kernel code isn't available but X++ source code is open-sourced to the community. Packages are there to assist developers in reusability rather than restarting their development from scratch each time. Even though X++ is a programming language, it doesn't support inheritance with all type of object types. 
 
 
 ### What will this repository contain
 
-The repository will contains basic of how to program in AX and will guide through:
+The repository will contains the following on how to program in AX:
 
 - Basics (variables, statements, loops, etc)
 - Functions
@@ -29,5 +29,5 @@ The repository will contains basic of how to program in AX and will guide throug
 
 ### References
 
-- ![AX 2012 Developer Homepage](https://msdn.microsoft.com/en-us/library/hh881815.aspx)
-- ![AX 7 Developer Homepage](https://docs.microsoft.com/en-us/dynamics365/unified-operations/dev-itpro/dev-tools/developer-home-page)
+- [AX 2012 Developer Homepage](https://msdn.microsoft.com/en-us/library/hh881815.aspx)
+- [AX 7 Developer Homepage](https://docs.microsoft.com/en-us/dynamics365/unified-operations/dev-itpro/dev-tools/developer-home-page)
