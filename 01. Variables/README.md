@@ -16,12 +16,14 @@ The identifier (name) of the variable points to a memory location where informat
 
 According to Microsoft's convention, variable names should begin with a lowercase letter. Variables of specialized types should be named as:
 
-> CustTable          custTable;
-> CustInvoiceJournal custInvoiceJour;
+```c++
+CustTable          custTable;
+CustInvoiceJournal custInvoiceJour;
+```
 
 The example shows how variables are declared in `myMethod`:
 
-```x++
+```c++
 private void myMethod(int _num, str _myParameter2) 
 {
 	str I;
@@ -38,10 +40,12 @@ The conventions are as follows:
 - Prefix should added to distinguish between multiple variables that have the same specialized types
 - One charactered variables should only be used for looping purposes
 
-> int         i;               // Primitive data type
-> MyObject    myObject;        // Self-defined class object
-> CustTable   custTable;       // Specialized type 
-> InvoiceJour invoiceJour;     // Specialized type
+```c++
+int         i;               // Primitive data type
+MyObject    myObject;        // Self-defined class object
+CustTable   custTable;       // Specialized type 
+InvoiceJour invoiceJour;     // Specialized type
+```
 
 ### Variable Declaration
 
@@ -49,13 +53,17 @@ Variable must be declared before it is used in any X++ statement. When a variabl
 
 Variables can be declared and initialized with a value in the same statement, this allows the developer to save time and lines of code.
 
-> real   pi           = 3.1415926539;
-> Access accessObject = new Access();
+```c++
+real   pi           = 3.1415926539;
+Access accessObject = new Access();
+```
 
 X++ also allows multiple declaration i.e. a single statement to declare and initialize more than one variable.
 
-> int i, j=0;
-> int a[100, 5], b=1;
+```c++
+int i, j=0;
+int a[100, 5], b=1;
+```
 
 ### Variable Scopes
 
@@ -64,7 +72,7 @@ A scope defines the area in which an item can be accessed:
 - Instance variables which are declared in class declarations, can be accessed from any methods in the class, or from methods that extend the class
 - Local variables can be accessed only in the block in which they were defined (variables created by developers have local scope)
 
-```x++
+```c++
 class myClass 
 {
 	int myVariable;
