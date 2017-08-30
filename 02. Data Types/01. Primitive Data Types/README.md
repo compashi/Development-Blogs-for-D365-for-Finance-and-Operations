@@ -94,7 +94,7 @@ A **date** data type holds a complete date i.e. day, month and years. The **date
 | Scope         | [1\1\1900 : 31\12\2154] |
 | Default Value | 1\1\1900, which is treated as **null** by X++ SQL statements |
 | Implicit Conversion | none |
-| Explicit Conversion | `str2date`, `date2str`, `date2num` and `int2date` |
+| Explicit Conversion | `date2str` and `date2num` |
 
 The following example shows how to use **date** data type:
 
@@ -113,7 +113,7 @@ void myMethod()
 
 ### Enum
 
-An enum is a list of literals that can referred by integer values. The first element has value 0, the second element has value 1, and so forth. There are alot of built in enum to aid in development, such as `NoYes`. A single can hold a total of 255 elements ranging from 0 to 254. 
+An enum is a list of literals that can referred by integer values. The first element has value 0, the second element has value 1, and so forth. There are alot of built in enum to aid in development, such as `NoYes`. A single enum can hold a total of 255 elements ranging from 0 to 254. 
 
 To reference an enum literal, the name of the literal is used, seperated by double colons: `EnumName::literalName`. The table shows how property of an enum data type:
 
@@ -124,7 +124,7 @@ To reference an enum literal, the name of the literal is used, seperated by doub
 | Scope         | User defined |
 | Default Value | 0 for first literal |
 | Implicit Conversion | Automatically converted to **int**, **boolean** and **real** |
-| Explicit Conversion | `enum2str` and `str2enum` |
+| Explicit Conversion | `enum2str` |
 
 The example shows how to use enum data type:
 
@@ -152,7 +152,7 @@ A **GUID** (globally unique identifier) is a 128 bits (16 bytes) long unique ide
 | Braces           | Options to have braces {} |
 | Length           | 36 or 38 characters, depending on if braces are added |
 | Casing           | [a-f], [A-F], [0-9] |
-| Explicit Conversion | `any2guid`, `guid2str`, `str2guid`, `Global::guidFromString` and `Global::stringFromGuid` |
+| Explicit Conversion | `guid2str`, `Global::guidFromString` and `Global::stringFromGuid` |
 
 The following example will show how to use **guid** data type::
 
@@ -180,11 +180,11 @@ Note: `guid2str` method automatically adds braces to a string even if braces wer
 | ------------- | ----------- |
 | Keyword       | **int**, **int64** |
 | Size          | 32/64 bits (4/8 byte) |
-| Scope (int)   | [-2,147,483,648 : 2,147,483,647] |
-| Scope (int64) | [-9,223,372,036,854,775,808 : 9,223,372,036,854,775,808] |
+| Scope (int)   | [-2<sup>31</sup> : 2<sup>31</sup>-1] |
+| Scope (int64) | [-2<sup>63</sup> : 2<sup>63</sup>-1] |
 | Default Value | 0 |
 | Implicit Conversion | Automatically converted to **real**, **boolean** and **enum** |
-| Explicit Conversion | `str2int`, `int2str`, `str2int64` and `int642str` |
+| Explicit Conversion | `int2str` and `int642str` |
 
 The following example shows how to use **int** data type:
 
@@ -217,16 +217,19 @@ void myFunc()
 | Scope         | -10<sup>127</sup> : 10<sup>127</sup> |
 | Default Value | 0.00 |
 | Implicit Conversion | Automatically converted to **int**, **boolean** and **enum** |
-| Explicit Conversion | `str2num`, and `num2str` |
+| Explicit Conversion | `num2str` |
 
 The following example shows how to use **real** data type:
 
 ```c++
+void myMethod()
+{
     real v1 = 1.25;
     real v2 = 1.000e3;
     real v3 = 1.2345e+3;
     real v4 = 1.0e;
     real v5 = 1.2345e-5;
+}
 ```
 
 ### String
