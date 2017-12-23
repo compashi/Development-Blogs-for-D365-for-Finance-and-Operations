@@ -1,0 +1,167 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Looping DS in D365FO</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="logo"><a href="index.html">Looping FormDataSource <span>in D365</span></a></div>
+				<a href="#menu">Topics</a>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="loopingDataSource.html">Looping DataSource</a></li>
+				</ul>
+			</nav>
+
+		<!-- One -->
+			<section id="One" class="wrapper style3">
+				<div class="inner">
+					<header class="align-center">
+						<p style="text-align: center">D365</p>
+						<h2>Looping FormDataSource</h2>
+					</header>
+				</div>	
+			</section>
+
+		<!-- Main -->
+			<div id="main" class="container">
+
+				<!-- Elements -->
+					<h2 id="elements"><b>Looping FormDataSource in Microsoft Dynamics 365 for Finance and Operations</b></h2>
+					<div class="row 200%">
+                        <div>
+                            <p>
+                                A <a href="https://msdn.microsoft.com/en-us/library/formdatasource.aspx"><b>FormDataSource</b></a> is an instance of table pointing to all or filtered records in the underlying table. The filters applied on user interface (<a href="https://msdn.microsoft.com/en-us/library/aa881211.aspx"><b>Forms</b></a> for example) by the end user impact the records pointed by the <a href="https://msdn.microsoft.com/en-us/library/formdatasource.aspx"><b>FormDataSource</b></a>. Therefore, it is inevitable for developers to loop through <a href="https://msdn.microsoft.com/en-us/library/formdatasource.aspx"><b>FormDataSource</b></a> to execute business logic that is reflected by the change in FormDataSource. 
+                            </p>
+                            
+                            <p>
+                                <b>Consider a scenario:</b> A university course result has just been published, and the Dean of the university would like to know the average GPA scored by students that are being displayed on the form. As well as, he would like to email specific students to meet him in the office. How would you do that? 
+                            </p>
+							
+							<p>
+								For now, consider that you have implemented a form and attached a data source till now, and now want to implement the requirements that were stated by the dean of the university. 
+							</p>
+									
+							<span class="image fit"><div class="4u"><img src="images/looping_fds/FormDesign.png" alt="Form Design" /></div></span>
+							
+							<p>
+                                To begin with, you would add 2 buttons in the action pane. One for calculating average GPA  that is being displayed on the forms, and the other for sending email to specific students. 
+                            </p>
+							
+							<span class="image fit"><div class="4u"><img src="images/looping_fds/ButtonGroup.png" alt="Button Group" /></div></span>
+							
+							<p>
+                                When you click the Average GPA button, the result from the execution of button is displayed as: 
+                            </p>
+							
+							<span class="image fit"><div class="4u"><img src="images/looping_fds/AveragaGPA.png" alt="Loop Complete FormDataSource" /></div></span>
+							
+							<p>
+                                The code for implementing Average GPA functionality is as (Note that the implementation loops through all records in a FormDataSource):
+                            </p>
+							
+                            <pre>
+<code><keyword>public void</keyword> clicked()
+{
+    <keyword>int</keyword> totalRecords;
+    <keyword>RealBase</keyword> averageGPA;
+    <keyword>FinalResult</keyword> finalResultRecord;
+
+    <keyword>super</keyword>();
+
+    <comment>// Fetches first record from the FormDataSource</comment>
+    <comment>// FinalResult is the name of the table that stores result information</comment>
+    finalResultRecord = FinalResult_ds.getFirst() as <keyword>FinalResult</keyword>;
+
+    <comment>// Keeps checking if record fetched from FormDataSource is null</comment>
+    <keyword>while</keyword> (finalResultRecord)
+    {
+        totalRecords++;
+        averageGPA += finalResultRecord.GPA;
+
+        <comment>// Get the next record pointed by FormDataSource</comment>
+        finalResultRecord = FinalResult_ds.getNext();
+    }
+
+    averageGPA = averageGPA / totalRecords;
+
+    info(strFmt(<string>"Average GPA is %1"</string>, averageGPA));
+}
+</code></pre>
+							
+							<p>
+                                When you click the Email Student button, the result from the execution of button is displayed as: 
+                            </p>
+							
+							<span class="image fit"><div class="4u"><img src="images/looping_fds/EmailSent.png" alt="Loop Marked Records on FormDataSource" /></div></span>
+							
+							<p>
+                                The code for implementing Average GPA functionality as (Note that the implementation loops through marked records in a FormDataSource):
+                            </p>
+							
+							<pre>
+<code><keyword>public void</keyword> clicked()
+{
+    <keyword>FinalResult</keyword> markedRecord;
+
+    <keyword>super</keyword>();
+
+    <comment>// Fetches first marked record on FormDataSource</comment>
+    <comment>// If there are no marked records on the datasource, then it fetches the selected one</comment>
+    <keyword>for</keyword> (markedRecord = FinalResult_ds.getFirst(<keyword>true</keyword>)? FinalResult_ds.getFirst(<keyword>true</keyword>) : FinalResult_ds.cursor();
+         markedRecord;
+         markedRecord = FinalResult_ds.getNext())
+    {
+        <comment>// Email sending business logic to be coded</comment>
+
+        info(strFmt(<string>"Sucessfully sent email to %1"</string>, markedRecord.StudentName));
+    }
+}
+</code></pre>
+
+
+							<p>
+								Congratulatons for reaching till the end. I hope this blog was helpful and cleared some of you doubts in what situations should this technique be used.
+                            </p>
+							
+							
+							<p>
+								Feedbacks are always welcomed, or if you want to have a chat about development scenarios in D365FO, feel free to contact me via the social-media icons down below. 
+                            </p>
+						</div>
+					</div>
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="container">
+					<ul class="icons">
+						<li><a href="https://www.linkedin.com/in/danz1ka19/" class="icon fa-linkedin"><span class="label">Linked in</span></a></li>
+						<li><a href="https://www.facebook.com/danz1ka" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="https://www.instagram.com/danz1ka/" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+					</ul>
+				</div>
+				<div class="copyright">
+					&copy; Danyal Imran 2017. All rights reserved.
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
