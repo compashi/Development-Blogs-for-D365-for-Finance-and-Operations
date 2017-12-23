@@ -1,5 +1,9 @@
 # Programming in Dynamics AX
 
+### Visit the website
+
+https://danz1ka19.github.io/Development-in-D365-Finance-and-Operations/
+
 ### Introduction
 
 Dynamics AX is among the Enterprise Resource Planning (ERP) products of the Microsoft Dynamics family. The latest AX product, currently known as AX7 or D365 was released in February 2016, which revamped the whole system by providing a cloud-based solution. The latest platform update was released in August 2017 and is known as update 10 (AX7 platform update 10). Read more on their [Whats new or changed](https://docs.microsoft.com/en-us/dynamics365/unified-operations/dev-itpro/get-started/whats-new-changed) and what was deprecated in its previous versions.
