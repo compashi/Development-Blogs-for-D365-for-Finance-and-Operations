@@ -1641,6 +1641,14 @@
 		a:hover {
 			text-decoration: none;
 		}
+		
+		a.recent-posts {
+			text-decoration: none;
+		}
+			
+			a.recent-posts b {
+				color: #4885ed;
+			}
 
 	strong, b {
 		font-weight: 600;
