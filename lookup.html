@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Looping DS in D365FO</title>
+		<title>Lookup in D365FO</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="shortcut icon" href="images/icon/icon.jpg" />
@@ -11,7 +11,7 @@
 
 		<!-- Header -->
 			<header id="header">
-				<div class="logo"><a href="index.html">Looping FormDataSource <span>in D365</span></a></div>
+				<div class="logo"><a href="index.html">Lookup <span>in D365</span></a></div>
 				<a href="#menu">Topics</a>
 			</header>
 
@@ -29,7 +29,7 @@
 				<div class="inner">
 					<header class="align-center">
 						<p style="text-align: center">D365</p>
-						<h2>Looping FormDataSource</h2>
+						<h2>Lookup</h2>
 					</header>
 				</div>	
 			</section>
@@ -38,15 +38,15 @@
 			<div id="main" class="container">
 
 				<!-- Elements -->
-					<h2 id="elements"><b>Looping FormDataSource in Microsoft Dynamics 365 for Finance and Operations</b></h2>
+					<h2 id="elements"><b>Lookups in Microsoft Dynamics 365 for Finance and Operations</b></h2>
 					<div class="row 200%">
                         <div>
                             <p>
-                                A <a href="https://msdn.microsoft.com/en-us/library/formdatasource.aspx" class="recent-posts"><b>FormDataSource</b></a> is an instance of table pointing to all or filtered records in the underlying table. The filters applied on user interface (<a href="https://msdn.microsoft.com/en-us/library/aa881211.aspx" class="recent-posts"><b>Forms</b></a> for example) by the end user impact the records pointed by the <a href="https://msdn.microsoft.com/en-us/library/formdatasource.aspx" class="recent-posts"><b>FormDataSource</b></a>. Therefore, it is inevitable for developers to loop through <a href="https://msdn.microsoft.com/en-us/library/formdatasource.aspx" class="recent-posts"><b>FormDataSource</b></a> to execute business logic that is reflected by the change in FormDataSource. 
+                                A lookup control in D365 refers to a drop down that lists certain values. These values can either be static or dynamic (from tables based on certain conditions or just their unique field values). Static lookup's values refer to a base enum element, where as, dynamic lookup's values are set by referring a single or many tables based on certain condition.
                             </p>
                             
                             <p>
-                                <b>Consider a scenario:</b> A university course result has just been published, and the Dean of the university would like to know the average GPA scored by students that are being displayed on the form. As well as, he would like to email specific students to meet him in the office. How would you do that? 
+                                Static lookup on forms are created by right clicking the design node and selecting <b>Combo Box</b> control. Dynamic lookups on the other hand, can be formed by creating a <b>foreign key relation</b> on the table (if you don't want to specify any condition and want to lookup values of any primary key/unique field that the underlying table has), or by writing custom X++ code in a <a href="https://msdn.microsoft.com/en-us/library/formstringcontrol.aspx" class="recent-posts"><b>FormStringControl</b></a> control's <b>lookup</b> method. This blog displays all of the ways that can be used to create a lookup. 
                             </p>
 							
 							<p>
