@@ -1,4 +1,4 @@
-# Programming in Dynamics AX
+# Programming in Dynamics D365 (AX7)
 
 ### Visit the website
 
