@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Model in D365FO</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="shortcut icon" href="images/icon/icon.jpg" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="logo"><a href="index.html">Model <span>in D365</span></a></div>
+				<a href="#menu">Topics</a>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="model.html">Models</a><li>
+					<li><a href="lookup.html">Lookup</a></li>
+					<li><a href="loopingDataSource.html">Looping DataSource</a></li>
+				</ul>
+			</nav>
+
+		<!-- One -->
+			<section id="One" class="wrapper style3">
+				<div class="inner">
+					<header class="align-center">
+						<p style="text-align: center">D365</p>
+						<h2>Models</h2>
+					</header>
+				</div>	
+			</section>
+
+		<!-- Main -->
+			<div id="main" class="container">
+
+				<!-- Elements -->
+					<h2 id="elements"><b>Models in Microsoft Dynamics 365 for Finance and Operations</b></h2>
+					<div class="row 200%">
+                        <div>
+                            <p>
+                                A model in D365 is a group of elements, which comprises of metadata and source files, altogether constitute to a distributable software solution. Each model must belong to a deployable package (collection of models and its binary and resource files).
+                            </p>
+							
+							<p>
+								Models can be of 2 types. One, that is deployed in its own package, and the other that is a part of existing package. A model that is deployed in its package is used to create new metadata elements and to extended business logic of referred models. The later on the other hand is used to work on extensions or overlaying existing out-of-the box customizations.
+							</p>
+						</div>
+					</div>
+					
+					<h2 id="elements"><b>Creating a model</b></h2>
+					<div class="row 200%">
+						<div>
+							<p>
+								To create a model:
+								<ul>
+									<li>Go to menu <b>Dynamics 365 > Model Management > Create Model</b></li>
+									<li>Set parameters, model's layer, and then click Next</li>
+									<li>If you selected for a model to be deployed on its own package, choose the models that you are going to refer to for that model and click Finish</li>
+									<li>Else, select a model in the drop down, for this to make a part of it, and then click Finish</li>
+									<li>Verify the folder has been created in <b>C:\AOSServices\PackagesLocalDirectory\&ltPackage_Name&gt\&ltModel_Name&gt</b> (Note that &ltPackage_Name&gt will only occur if you select the option for the model ot be a part of existing package)</li>
+								</ul>
+							</p>
+						</div>
+					</div>
+					
+					<h2 id="elements"><b>Updating model parameters</b></h2>
+					<div class="row 200%">
+						<div>
+							<p>
+								To update model parameters:
+								<ul>
+									<li>Go to menu <b>Dynamics 365 > Model Management > Update Model</b></li>
+									<li>Select the model that you want to update</li>
+									<li>Update its metadata properties (Note that you cannot modify model's layer) and click Next</li>
+									<li>Check models that need to be referred, or uncheck models that don't need to be referred in the selected model</li>
+									<li>Click Finish and verify that model parameters have been updated (if they don't, Go to menu <b>Dynamics 365 > Model Management > Refresh Models</b> or restart Visual Studio)</li>
+								</ul>
+							</p>
+						</div>
+					</div>
+					
+					<h2 id="elements"><b>Deleting a model</b></h2>
+					<div class="row 200%">
+						<div>
+							<p>
+								Deleting a model can be divided into two ways. One for deleting a model that belongs to its own package and the later one belonging to a package with multiple models. both of them can be deleted in the same way possible, but its recommended by Microsoft to utilize <b>ModelUtil.exe</b> explained below (Note that these practices are only applicable development or test environment, doing so on a live production server can lead to loss of data or worse).
+							</p>
+							
+							<p>
+								Deleting model using <b>ModelUtil.exe</b> (recommended)
+								<ul>
+									<li>Run command prompt as administrator</b></li>
+									<li>Navigate to <b>C:\AOSServices\PackagesLocalDirectory\Bin</b></li>
+									<li>Type command <b>ModelUtil.exe /?</b> to list commands that can be executed using model utility</li>
+									<li>To delete model, type the command <b>ModelUtil.exe -delete -metadatastorepath="&ltPath&gt" -modelname="&ltModel_Name&gt"</b></li>
+									<li>Confirm that you want to delete it, by typing <b>Y</b> in command prompt</li>
+									<li>Close command prompt and verify that model folder isn't there in its specified folder</li>
+								</ul>
+							</p>
+							
+							<p>
+								Deleting model from local directory:
+								<ul>
+									<li>Stop <b>AOS Web Service</b> and <b>Batch Management Service</b></li>
+									<li>Delete the model folder located at <b>C:\AOSServices\PackagesLocalDirectory\&ltPackage_Name&gt\&ltModel_Name&gt</b></li>
+									<li>Restart <b>AOS Web Service</b> and <b>Batch Management Service</b></li>
+									<li>Refresh models in Visual studio via <b>Dynamics 365 > Model Management > Refresh Models</b></li>
+									<li>Perform full database synchronization in Visual Studio via <b>Dynamics 365 > Synchronize Database</b></li>
+								</ul>
+							</p>
+						</div>
+					</div>
+			</div>
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="container">
+					<ul class="icons">
+						<li><a href="https://www.linkedin.com/in/danz1ka19/" class="icon fa-linkedin"><span class="label">Linked in</span></a></li>
+						<li><a href="https://www.facebook.com/danz1ka" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="https://www.instagram.com/danz1ka/" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="mailto:k132089@nu.edu.pk" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+					</ul>
+				</div>
+				<div class="copyright">
+					&copy; Danyal Imran 2017. All rights reserved.
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
