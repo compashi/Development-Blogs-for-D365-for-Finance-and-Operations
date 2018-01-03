@@ -22,6 +22,7 @@
 					<li><a href="model.html">Models</a><li>
 					<li><a href="lookup.html">Lookup</a></li>
 					<li><a href="loopingDataSource.html">Looping DataSource</a></li>
+					<li><a href="azure.html">Azure App Integration</a></li>
 				</ul>
 			</nav>
 
@@ -42,80 +43,39 @@
 					<h2 id="elements"><b>Azure Active Directory Application Integration with Microsoft Dynamics 365 for Finance and Operations</b></h2>
 					<div class="row 200%">
                         <div>
+							<p>
+								With the release of D356FO, there has been an immense architecture shift from server-client architecture (AX2012) to cloud based architecture (D365). Therefore, Integrating 3<sup>rd</sup> party applications has to be done in another way to ensure data flow to and from outside world applications.
+							</p>
+							
                             <p>
-                                Software-as-a-Service (SaaS) providers and application/service developers can develop cloud based services or applications that can be consumed by D356FO via secure authorization and sign-in service provided by azure active directory. 
+                                Software-as-a-Service (SaaS) providers and application/service developers can develop cloud based services or applications that can be consumed by D356FO via secure authorization and sign-in service provided by azure active directory (AAD). 
                             </p>
-							
-							<p>
-								Models can be of 2 types. One, that is deployed in its own package, and the other that is a part of existing package. A model that is deployed in its package is used to create new metadata elements and to extended business logic of referred models. The later on the other hand is used to work on extensions or overlaying existing out-of-the box customizations.
-							</p>
 						</div>
 					</div>
 					
-					<h2 id="elements"><b>Creating a model</b></h2>
 					<div class="row 200%">
 						<div>
 							<p>
-								To create a model:
+								To Integrate AAD application with D356FO:
 								<ul>
-									<li>Go to menu <b>Dynamics 365 > Model Management > Create Model</b></li>
-									<li>Set parameters, model's layer, and then click Next</li>
-									<li>If you selected for a model to be deployed on its own package, choose the models that you are going to refer to for that model and click Finish</li>
-									<li>Else, select a model in the drop down, for this to make a part of it, and then click Finish</li>
-									<li>Verify the folder has been created in <b>C:\AOSServices\PackagesLocalDirectory\&ltPackage_Name&gt\&ltModel_Name&gt</b> (Note that &ltPackage_Name&gt will only occur if you select the option for the model ot be a part of existing package)</li>
+									<li>Go to <a href="https://portal.azure.com" class="recent-posts">azure portal</a></li>
+									<li>Click on <b>Azure Active Directory</b></li>
+									<li>Click <b>App Registrations</b></li>
+									<li>Click <b>New application registration</b></li>
+									<li>Add parameters for you application</li>
+									<li>After application is registered, the page would look like</li>
+									<li>Click <b>Required Permissions</b></li>
+									<li>Select <b>Microsoft Dynamics ERP</b> in the API section</li>
+									<li>Select all permissions and roles</li>
+									<li>After permissions are created, the success message will look like</li>
+									<li>Click <b>Grand Permissions</b></li>
+									<li>Copy <b>Application Id</b></li>
+									<li>Go to D365 main url and navigate to <b>Modules > System administration > Azure Active Directory applications</b></li>
+									<li>Set the client Id as the application Id that was copied back in step#12</li>
 								</ul>
 							</p>
 						</div>
 					</div>
-					
-					<h2 id="elements"><b>Updating model parameters</b></h2>
-					<div class="row 200%">
-						<div>
-							<p>
-								To update model parameters:
-								<ul>
-									<li>Go to menu <b>Dynamics 365 > Model Management > Update Model</b></li>
-									<li>Select the model that you want to update</li>
-									<li>Update its metadata properties (Note that you cannot modify model's layer) and click Next</li>
-									<li>Check models that need to be referred, or uncheck models that don't need to be referred in the selected model</li>
-									<li>Click Finish and verify that model parameters have been updated (if they don't, Go to menu <b>Dynamics 365 > Model Management > Refresh Models</b> or restart Visual Studio)</li>
-								</ul>
-							</p>
-						</div>
-					</div>
-					
-					<h2 id="elements"><b>Deleting a model</b></h2>
-					<div class="row 200%">
-						<div>
-							<p>
-								Deleting a model can be divided into two ways. One for deleting a model that belongs to its own package and the later one belonging to a package with multiple models. both of them can be deleted in the same way possible, but its recommended by Microsoft to utilize <b>ModelUtil.exe</b> explained below (Note that these practices are only applicable development or test environment, doing so on a live production server can lead to loss of data or worse).
-							</p>
-							
-							<p>
-								Deleting model using <b>ModelUtil.exe</b> (recommended)
-								<ul>
-									<li>Run command prompt as administrator</b></li>
-									<li>Navigate to <b>C:\AOSServices\PackagesLocalDirectory\Bin</b></li>
-									<li>Type command <b>ModelUtil.exe /?</b> to list commands that can be executed using model utility</li>
-									<li>To delete model, type the command <b>ModelUtil.exe -delete -metadatastorepath="&ltPath&gt" -modelname="&ltModel_Name&gt"</b></li>
-									<li>Confirm that you want to delete it, by typing <b>Y</b> in command prompt</li>
-									<li>Close command prompt and verify that model folder isn't there in its specified folder</li>
-								</ul>
-							</p>
-							
-							<p>
-								Deleting model from local directory:
-								<ul>
-									<li>Stop <b>AOS Web Service</b> and <b>Batch Management Service</b></li>
-									<li>Delete the model folder located at <b>C:\AOSServices\PackagesLocalDirectory\&ltPackage_Name&gt\&ltModel_Name&gt</b></li>
-									<li>Restart <b>AOS Web Service</b> and <b>Batch Management Service</b></li>
-									<li>Refresh models in Visual studio via <b>Dynamics 365 > Model Management > Refresh Models</b></li>
-									<li>Perform full database synchronization in Visual Studio via <b>Dynamics 365 > Synchronize Database</b></li>
-								</ul>
-							</p>
-						</div>
-					</div>
-			</div>
 			</div>
 
 		<!-- Footer -->
