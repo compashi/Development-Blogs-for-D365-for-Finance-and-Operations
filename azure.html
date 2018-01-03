@@ -17,15 +17,9 @@
 
 		<!-- Nav -->
 			<nav id="menu">
-				<ul class="links">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="model.html">Models</a><li>
-					<li><a href="lookup.html">Lookup</a></li>
-					<li><a href="loopingDataSource.html">Looping DataSource</a></li>
-					<li><a href="azure.html">Azure App Integration</a></li>
-				</ul>
+				<script src="assets/js/nav.js"></script>
 			</nav>
-
+			
 		<!-- One -->
 			<section id="One" class="wrapper style3">
 				<div class="inner">
@@ -60,22 +54,107 @@
 								<ul>
 									<li>Go to <a href="https://portal.azure.com" class="recent-posts">azure portal</a></li>
 									<li>Click on <b>Azure Active Directory</b></li>
+								</ul>
+								
+								<div class="box alt">
+									<div class="10u"><span class="image fit"><img src="images/azure/01. dashboard.png" alt="Azure dashboard" /></span></div>
+								</div>
+								
+								<ul>
 									<li>Click <b>App Registrations</b></li>
+								</ul>
+								
+								<div class="box alt">
+									<div class="10u"><span class="image fit"><img src="images/azure/02. App Registration.png" alt="Application registration" /></span></div>
+								</div>
+								
+								<ul>
 									<li>Click <b>New application registration</b></li>
+								</ul>
+								
+								<div class="box alt">
+									<div class="10u"><span class="image fit"><img src="images/azure/03. New application.png" alt="New application" /></span></div>
+								</div>
+								
+								<ul>
 									<li>Add parameters for you application</li>
+								</ul>
+								
+								<div class="box alt">
+									<div class="10u"><span class="image fit"><img src="images/azure/04. Setup parameters.png" alt="Setup parameters" /></span></div>
+								</div>
+								
+								<ul>
 									<li>After application is registered, the page would look like</li>
+								</ul>
+								
+								<div class="box alt">
+									<div class="10u"><span class="image fit"><img src="images/azure/05. Application properties.png" alt="Application properties" /></span></div>
+								</div>
+								
+								<ul>
 									<li>Click <b>Required Permissions</b></li>
+								</ul>
+								
+								<div class="box alt">
+									<div class="10u"><span class="image fit"><img src="images/azure/06. Required permissions.png" alt="Required permissions" /></span></div>
+								</div>
+								
+								<ul>
 									<li>Select <b>Microsoft Dynamics ERP</b> in the API section</li>
+								</ul>
+								
+								<div class="box alt">
+									<div class="10u"><span class="image fit"><img src="images/azure/07. ERP persmissions.png" alt="ERP permissions" /></span></div>
+								</div>
+								
+								<ul>
 									<li>Select all permissions and roles</li>
+								</ul>
+								
+								<div class="box alt">
+									<div class="10u"><span class="image fit"><img src="images/azure/08. ERP API persmissions.png" alt="ERP API permissions" /></span></div>
+								</div>
+								
+								<ul>
 									<li>After permissions are created, the success message will look like</li>
 									<li>Click <b>Grand Permissions</b></li>
+								</ul>
+								
+								<div class="box alt">
+									<div class="10u"><span class="image fit"><img src="images/azure/09. Permissions successfully added.png" alt="Permissions successfully added" /></span></div>
+								</div>
+								
+								<ul>
 									<li>Copy <b>Application Id</b></li>
+								</ul>
+								
+								<div class="box alt">
+									<div class="10u"><span class="image fit"><img src="images/azure/10. Copy application Id.png" alt="Copy application Id" /></span></div>
+								</div>
+								
+								<ul>
 									<li>Go to D365 main url and navigate to <b>Modules > System administration > Azure Active Directory applications</b></li>
+								</ul>
+								
+								<div class="box alt">
+									<div class="10u"><span class="image fit"><img src="images/azure/11. AAD navigation.png" alt="AAD navigation" /></span></div>
+								</div>
+								
+								<ul>
 									<li>Set the client Id as the application Id that was copied back in step#12</li>
 								</ul>
+								
+								<div class="box alt">
+									<div class="10u"><span class="image fit"><img src="images/azure/12. AAD ID setup.png" alt="AAD ID setup" /></span></div>
+								</div>
 							</p>
 						</div>
 					</div>
+					
+					<p>
+						You are now done with setting up AAD native application, so that you can integrate with D356FO. There are many operations that can be performed such as import/export, but will be demonstrated in Recurring Integration Services (RIS) blog. 
+					</p>
 			</div>
 
 		<!-- Footer -->
@@ -99,6 +178,5 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-
 	</body>
 </html>
