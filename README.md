@@ -1,12 +1,19 @@
 # Programming in Dynamics D365 (AX7)
 
-### Visit the website
+### Visit the website for blog topics
 
 https://danz1ka19.github.io/Development-in-D365-Finance-and-Operations/
 
+Currently covered:
+
+- Azure application integration (3rd January 2018)
+- Model management (27th December 2017)
+- Lookups (25th December 2017)
+- Looping FormDataSource (23rd December 2017)
+
 ### Introduction
 
-Dynamics AX is among the Enterprise Resource Planning (ERP) products of the Microsoft Dynamics family. The latest AX product, currently known as AX7 or D365 was released in February 2016, which revamped the whole system by providing a cloud-based solution. The latest platform update was released in August 2017 and is known as update 10 (AX7 platform update 10). Read more on their [Whats new or changed](https://docs.microsoft.com/en-us/dynamics365/unified-operations/dev-itpro/get-started/whats-new-changed) and what was deprecated in its previous versions.
+Dynamics AX is among the Enterprise Resource Planning (ERP) products of the Microsoft Dynamics family. The latest AX product, currently known as AX7 or D365 was released in February 2016, which revamped the whole system by providing a cloud-based solution. The latest platform update was released in November 2017 and is known as update 12 (build number 7.0.4709). Read more on their [Whats new or changed](https://docs.microsoft.com/en-us/dynamics365/unified-operations/dev-itpro/get-started/whats-new-changed) and what was deprecated in its previous versions.
 
 ### What is X++
 
@@ -17,7 +24,7 @@ X++ is created on C++. The C++ kernel code isn't available but X++ source code i
 
 ### What will this repository contain
 
-The repository will contains the following on how to program in AX:
+The repository will contains the following on how to program in AX, each topic will consider a use case, as well as include code snippets and images to support visualization:
 
 - Basics (variables, statements, loops, etc)
 - Functions
