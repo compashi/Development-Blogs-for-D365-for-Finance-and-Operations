@@ -61,13 +61,15 @@
                                 When you click the Average GPA button, the result from the execution of button is displayed as: 
                             </p>
 							
-							<span class="image fit"><div class="4u"><img src="images/looping_fds/AveragaGPA.png" alt="Loop Complete FormDataSource" /></div></span>
 							
-							<p>
-                                The code for implementing Average GPA functionality is as (Note that the implementation loops through all records in a FormDataSource):
-                            </p>
+							<div id="loopingAll">
+								<span class="image fit"><div class="4u"><img src="images/looping_fds/AveragaGPA.png" alt="Loop Complete FormDataSource" /></div></span>
 							
-                            <pre>
+								<p>
+									The code for implementing Average GPA functionality is as (Note that the implementation loops through all records in a FormDataSource):
+								</p>
+							
+								<pre>
 <code><keyword>public void</keyword> clicked()
 {
     <keyword>int</keyword> totalRecords;
@@ -94,19 +96,21 @@
 
     info(strFmt(<string>"Average GPA is %1"</string>, averageGPA));
 }
-</code></pre>
+								</code></pre>
+							</div>
 							
 							<p>
                                 When you click the Email Student button, the result from the execution of button is displayed as (unfortunately the dean called students with less than 2.00 GPA): 
                             </p>
 							
-							<span class="image fit"><div class="4u"><img src="images/looping_fds/EmailSent.png" alt="Loop Marked Records on FormDataSource" /></div></span>
-							
-							<p>
-                                The code for implementing Average GPA functionality as (Note that the implementation loops through marked records in a FormDataSource):
-                            </p>
-							
-							<pre>
+							<div id="loopingMarked">
+								<span class="image fit"><div class="4u"><img src="images/looping_fds/EmailSent.png" alt="Loop Marked Records on FormDataSource" /></div></span>
+								
+								<p>
+									The code for implementing Average GPA functionality as (Note that the implementation loops through marked records in a FormDataSource):
+								</p>
+								
+								<pre>
 <code><keyword>public void</keyword> clicked()
 {
     <keyword>FinalResult</keyword> markedRecord;
@@ -124,7 +128,8 @@
         info(strFmt(<string>"Sucessfully sent email to %1"</string>, markedRecord.StudentName));
     }
 }
-</code></pre>
+								</code></pre>
+							</div>
 
 
 							<p>
