@@ -2,7 +2,7 @@
 
 ### Visit the website for blog topics
 
-https://danz1ka19.github.io/Development-in-D365-Finance-and-Operations/
+https://danz1ka19.github.io/Development-Blogs-for-D365-for-Finance-and-Operations/
 
 Currently covered:
 
